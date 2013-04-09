@@ -1,0 +1,153 @@
+
+/* Things that need to get done:
+	Replace the footer images
+	Make a nice logo (not a priority)
+	Make the header (battery, health, exp, etc.)
+*/
+
+
+body {
+	background-image:url('../assets/cloud_texture.jpg');
+	margin: 20 px 0;
+	font-family: "Helvetica", "Helvetica Neue", "Arial", sans-serif;
+	font-size: 14px;
+	color: black;
+	}
+
+/* top header */
+h1 {
+	font: "Helvetica Neue";
+	font-size: 23px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	padding: 13px;
+	z-index: 1;
+}
+
+p {
+	background-color: #eeeeee;
+	line-height: 120%;
+  	border-radius: 10px;
+  	-moz-border-radius: 10px;
+  	opacity:0.85;
+  	filter:alpha(opacity=85); /* For IE8 and earlier */
+}
+
+.center{
+	text-align: center;
+}
+
+/* Link Stuff */
+a:link {color: #1a5ddb; text-decoration: none;}
+a:visited {color: #1a5ddb; text-decoration: none;}
+a:hover {color: #BE333F; text-decoration: underline;}
+
+/* Body of the text */
+.box {
+	margin: 10px 30px;
+	padding: 20px;
+}
+
+/* Menu for footer */
+#footer {
+	background-color: #222222;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 70px;
+	text-align: center;
+	z-index: 1;
+}
+
+
+/* ==============
+      buffer
+ ================*/
+
+.bot-buffer{
+	margin: 60px;
+}	
+
+.top-buffer{
+	margin-bottom: 20px;
+}
+
+/* ==============
+      floats
+ ================*/
+.clearfix{
+	clear:both;
+}
+.right{
+	float:right;
+}
+.left{
+	float:left;
+}
+
+
+/* =======================
+   Index page Transitions 
+ =========================*/
+.doge_home{
+	
+}
+
+.avatar_home{
+	
+}
+
+
+/* ==============
+   general tab 
+ ================*/
+.tab {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	padding: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.home {
+	background-image: url(../assets/home.png);
+}
+.home_on{
+	background-image: url(../assets/home_hov.png);
+}
+
+.quest{
+	background-image: url(../assets/quest.png);
+}
+.quest_on{
+	background-image: url(../assets/quest_hov.png);
+}
+
+.map{
+	background-image: url(../assets/map.png);
+}
+.map_on{
+	background-image: url(../assets/map_hov.png);
+}
+
+.friends{
+	background-image: url(../assets/friends.png);
+}
+.friends_on{
+	background-image: url(../assets/friends_hov.png);
+}
+
+
+
+.mentions {
+	background-image: url(../assets/mentions.png);
+}
+.favorites {
+	background-image: url(../assets/favorites.png);
+}
+
+.profile {
+	background-image: url(../assets/profile.png);
+}
