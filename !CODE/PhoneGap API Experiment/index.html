@@ -1,0 +1,78 @@
+<!--
+ *	Phonegap Test App
+ *	android.html
+ -->
+ 
+<html>
+	<head>
+		<meta name='viewport' content='initial-scale=1.0 maximum-scale=1.0 minimum-scale=1.0 user-scalable=0' />
+		
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		
+		<script>
+			function defaultPage() {
+				/*window.addEventListener('load', function() {
+					document.write('<p>Please access either <strong>ios.html</strong> or <strong>android.html</strong> directly, according to your OS.</p>');
+				});*/
+			}
+			
+			function isIOS(){
+				return  !!(navigator.userAgent.match(/iPhone/i) ||
+								navigator.userAgent.match(/iPod/i) ||
+								navigator.userAgent.match(/iPad/i));
+			}
+			
+			function isAndroid(){
+				return !!(navigator.userAgent.match(/Android/));
+			}
+			
+			var isTouchSupported = isIOS() || isAndroid();
+			var startEvent = isTouchSupported ? 'touchstart' : 'mousedown';
+			var moveEvent = isTouchSupported ? 'touchmove' : 'mousemove';
+			var endEvent = isTouchSupported ? 'touchend' : 'mouseup';
+		</script>
+		
+		<script src="phonegap.js" onerror="defaultPage();"></script>
+		<script src="util/jquery-1.8.2.min.js"></script>
+		
+		<script src="js/NotificationPage.js"></script>
+		<script src="js/CameraPage.js"></script>
+		<script src="js/EventsPage.js"></script>
+		<script src="js/ContactPage.js"></script>
+		
+		<script src="client.js"></script>
+    <script src="load.js"></script>
+	</head>
+	
+	<body>
+		<div id = "home" name="Home">
+			<ul>
+				<li><button id = "NotificationButton">PhoneGap Notification</button></li>
+				<li><button id = "ContactsButton">PhoneGap Contacts</button></li>
+			</ul>
+		</div>
+		
+		<div id = "Back">
+			<button id = "BackButton" class = "tests">Back</button>
+		</div>
+		
+			<div id = "NotificationView" class = "tests">
+				<ul>
+					<li><button id = "NotificationAlert" class = "notification">Notification Alert</button></li>
+					<li><button id = "NotificationConfirm" class = "notification">Notification Confirm</button></li>
+					<li><button id = "NotificationBeep" class = "notification">Notification Beep</button></li>
+					<li><button id = "NotificationVibrate" class = "notification">Notification Vibrate</button></li>
+			</ul>
+			
+				<div id = "NotificationText">
+				</div>
+			</div>
+			
+			<div id = "ContactsView" class = "tests">
+				<button id="AllContactsButton"> Get All Contacts </button>
+				<input id = "ContactName" type = "text" placeholder = "Enter name here"></input>
+				<button id="GetContactButton"> Get Contact </button>
+				<p id = "ContactList"></p>
+			</div>
+	</body>
+</html>
