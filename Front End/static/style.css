@@ -1,45 +1,89 @@
 
 /* Things that need to get done:
-	Replace the footer images
 	Make a nice logo (not a priority)
 	Make the header (battery, health, exp, etc.)
+  the background needs to scroll with the page
 */
 
 
 body {
-	background-image:url('../assets/cloud_texture.jpg');
-	margin: 20 px 0;
+  background-image:url('../assets/bg_sky.png');
 	font-family: "Helvetica", "Helvetica Neue", "Arial", sans-serif;
-	font-size: 14px;
+	font-size: 10px;
 	color: black;
 }
 
 /*====================
      backgrounds
  ==================*/
- .bg1 {
-   background-image:url('../assets/questfriend_bg.png');
-  }
+.bg1 {
+  background-image: url('../assets/questfriend_bg.png');
+}
+
+.sky {
+  background-image:url('../assets/bg_sky.png');
+}
+
+.grass{
+  z-index: -1;
+  background-image:url('../assets/bg_grass.png');
+  position: absolute;
+  left: 0px;
+  top: 110px;
+  width: 100%;
+  height: 350px;
+  max-height: 400px;
+}
 
 
 /* top header */
 h1 {
 	font: "Helvetica Neue";
-	font-size: 23px;
+	font-size: 20px;
 	font-weight: bold;
-	color: white;
+	color: gray;
 	text-align: center;
 	padding: 13px;
 	z-index: 1;
 }
 
+h2 {
+  font: "Helvetica Neue";
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  padding: 5px;
+}
+
 p {
+  padding:5px;
 	background-color: #eeeeee;
 	line-height: 120%;
-  	border-radius: 10px;
-  	-moz-border-radius: 10px;
-  	opacity:0.85;
-  	filter:alpha(opacity=85); /* For IE8 and earlier */
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  opacity:0.85;
+  filter:alpha(opacity=85); /* For IE8 and earlier */
+}
+
+.textbox {
+  padding: 10px;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  opacity:0.85;
+  filter:alpha(opacity=85); /* For IE8 and earlier */
+}
+
+.questtextbox {
+  padding: 10px;
+  margin: 20px 20px 0px 20px;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  opacity:0.70;
+  filter:alpha(opacity=70); /* For IE8 and earlier */
 }
 
 .center{
@@ -50,18 +94,29 @@ p {
   position: fixed;
   top: 50%;
   left: 50%;
-   margin-top: -50px;
-  margin-left: -100px;
+  margin-top: -50px;
+  margin-left: -70px;
 }
 /* Link Stuff */
 a:link {color: #1a5ddb; text-decoration: none;}
 a:visited {color: #1a5ddb; text-decoration: none;}
 a:hover {color: #BE333F; text-decoration: underline;}
 
+/* Menu for Header */
+#header {
+  background-color: #222222;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 25px;
+  text-align: center;
+  z-index: 1;
+}
+
 /* Body of the text */
 .box {
 	margin: 10px 30px;
-	padding: 20px;
+
 }
 
 /* Menu for footer */
@@ -76,16 +131,30 @@ a:hover {color: #BE333F; text-decoration: underline;}
 }
 
 
-/* ==============
-      buffer
- ================*/
+.hidden{
 
-.bot-buffer{
-	margin: 60px;
+    visibility:hidden;
+}
+
+.addbtn{
+  background-color: #7bb500;
+  line-height: 120%;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  opacity:0.85;
+  filter:alpha(opacity=85); /* For IE8 and earlier */
+}
+
+.addbtn:active{
+  background-color: #ff5656;
+}
+
+.topbuffer{
+	margin: 50px;
 }	
 
-.top-buffer{
-	margin-bottom: 20px;
+.bottombuffer{
+	margin: 100px;
 }
 
 /* ==============
@@ -93,6 +162,7 @@ a:hover {color: #BE333F; text-decoration: underline;}
  ================*/
 .clearfix{
 	clear:both;
+  padding: 0px;
 }
 .right{
 	float:right;
@@ -100,22 +170,18 @@ a:hover {color: #BE333F; text-decoration: underline;}
 .left{
 	float:left;
 }
+.centerleft{
+  float:left;
+  margin-left: 5%; 
+}
 
 
 /* =======================
-   Index page Transitions 
+   Index page animations
  =========================*/
-.doge_home{
-	
-}
-
-.avatar_home{
-	
-}
-
 
 /* ==============
-   general tab 
+   Images & Tabs
  ================*/
 .tab {
 	display: inline-block;
@@ -156,13 +222,89 @@ a:hover {color: #BE333F; text-decoration: underline;}
 
 
 
-.mentions {
-	background-image: url(../assets/mentions.png);
-}
-.favorites {
-	background-image: url(../assets/favorites.png);
+.dogeimg {
+    background-image: url(../assets/doge.gif);
+    background-repeat: no-repeat;
+    background-size: 50%;
 }
 
-.profile {
-	background-image: url(../assets/profile.png);
+.boxlimit {
+  max-width: 35%;
+  min-width: 50px;
+}
+
+
+/*.avatar{
+    width: 60px;
+    height: 120px;
+    background-repeat: no-repeat;
+
+}
+
+.blackavatar{
+    width: 300px;
+    height: 600px;
+
+}
+
+.whiteavatar{
+    background-image: url(../assets/white_cloak.gif);
+}
+*/
+
+.loginbg{
+    background-image: url(../assets/titlecard.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color:black;
+
+}
+
+.loading{
+    background-image: url(../assets/loading.gif);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color:black;
+
+}
+
+
+
+/*
+
+html,body {
+        background: url(images/bg.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover; /*for webKit*
+        -moz-background-size: cover; /*Mozilla*
+        -o-background-size: cover; /*opera*
+        background-size: cover; /*generic*
+}
+
+*/
+
+/*======================
+    stolen from class so it wont scroll
+========================*/
+
+/* turn off the annoying highlight on a tap*/
+{
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+/* prevent the user from highlighting any text */
+{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* allow highlighting text in inputs */
+input {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }

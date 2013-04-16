@@ -10,126 +10,114 @@
     <meta name="MobileOptimized" content="width" />
     <meta name="HandheldFriendly" content="true" />
 
-    <script src="jquery-1.9.0.js"></script>
+    <script src="static/jquery-1.9.0.js"></script>
+    <script src="static/jquery.mobile-1.3.1.js"></script>
+
 
     <title>DOGE QUEST</title>
 
   </head>
 
   <body>
+
     <div class="container">
-    <!-- header here bro--> 
-    <div class="top-buffer"> </div>  
+    <div id="header"> <h2>Home</h2> </div>
 
+    <div class="topbuffer"></div>
 
-      <div id = "main_home">
-      	<h1>Home Page</h1>
-        <div class = "avatar box">
-        	<div class=" left"> <p> <b>USERNAME</b>
+      <div class="grass"></div>
+
+      <div id = "main_home" class='current'>
+        <div class = "box">
+        	<div class = "centerleft textbox"> <p> <b>USERNAME</b>
             <ul>
-              <li> list </li>
-              <li> of </li>
-              <li> your </li>
-              <li> stats </li>
+              <li> Level: </li>
+              <li> Guild: </li>
+              <li> Quests: </li>
+              <li> Exp: </li>
             </ul>  
         	</p></div>
 
-        	 <p class="center right" id="avatarimg">your avatar image goes here<br>
-        	   <img id="avatarimg" src="assets/char_placeholder.png"><br>
-             click to go to avatar_home
-        	 </p>
-          <p class = "clearfix"></p>
+        	<div class = "right"> <img id="avatarimg" src="assets/black_cloak.gif" width="120px"> </div>
+          <p class = "clearfix"></p><br>
         </div>
 
-       <div class="center divider">xxxxxxxxxxxxxxxxxxxxx</div>
-
-        <div class ="doge box" >
-          <div class=" left"> <p> <b>DOGE NAME</b>
+        <div class ="box" >
+          <div class= "centerleft textbox"> <p> <b>DOGE NAME</b>
             <ul>
-              <li> list </li>
-              <li> of </li>
-              <li> doge </li>
-              <li> stats </li>
+              <li> Dex: </li>
+              <li> Int: </li>
+              <li> Str: </li>
             </ul>  
           </p></div>
 
-           <p class="center right" id="dogeimg" >your doge image goes here<br>
-             <img src="assets/doge_placeholder.png"><br>
-             click to go to doge_home
-           </p>
+           <div class="right" > <img id="dogeimg" src="assets/doge.gif" width="150px"> </div>
           <p class = "clearfix"></p>
         </div>
       </div>
 
-
-      <!-- will scroll to this page when clicking on doge img -->
-      <div id = "doge_home">
-        <h1 class ="homebtn">DOGE Profile (name here) </h1>
+      <div id = "doge_home" >
+        <div class="backbtn"></div>
+        <h1 class ="homebtn">Doge Profile</h1>
+          <div class=" right">  <img class ="homebtn" src="assets/doge.gif" width="200px">  </div>
           <div class="box">
-          <div class="left"> <p> <b>DOGE NAME</b>
+          <div class="left textbox"> <p> <b>DOGE Stats</b>
             <ul>
-              <li> list </li>
-              <li> of </li>
-              <li> doge </li>
-              <li> stats </li>
-              <li> that </li>
-              <li> scroll </li>
+              <li> &nbsp; </li>
+              <li> Points available: <span class="pointnum"> 0 </span> </li>
+              <li> Dex: <span class="dexnum"> 1 </span> &nbsp; &nbsp;&nbsp; <span class ="dexadd addbtn">&nbsp;+&nbsp;</span> </li>
+              <li> Int: <span class="intnum"> 1 </span> &nbsp;&nbsp;&nbsp; <span class ="intadd addbtn">&nbsp;+&nbsp;</span> </li>
+              <li> Str: <span class="strnum"> 1 </span> &nbsp;&nbsp;&nbsp; <span class ="stradd addbtn">&nbsp;+&nbsp;</span> </li>
+              <li> Time Left: <span class="timenum"> 0 </span> </li>
+              <li> Health: <span class="healthnum"> 100 </span>/100 </li>
             </ul>  
           </p></div>
-
-           <p class="center right">your doge image goes here<br>
-             with cute animations and things<br>
-             <img src="assets/doge_placeholder.png"><br>
-             health bar, etc
-           </p>
+          <br> <br> <br> <br> <br> <br>
            <p class = "clearfix"></p>
           </div>
-        <p class="box center">Pet inventory goes here somewhere
-        <img src="assets/favorites.png">
+        <p class="box center">Pet inventory goes here somewhere <br>
+
+        <img src="assets/favorites.png"> <img src="assets/favorites.png"> <img src="assets/favorites.png"> <img src="assets/favorites.png"> <img src="assets/favorites.png"> <img src="assets/favorites.png">
         </p>
       </div>
 
-      <!-- will scroll to this page when clicking on avatar img -->
       <div id = "avatar_home">
         <h1 class ="homebtn">Personal Profile (name)</h1>
 
         <div class = "avatar box">
-          <p class="center right">your avatar image goes here<br>
-             <img src="assets/char_placeholder.png"><br>
-             plus cute animations :P
-          </p>
+          <div class = "right"> <img class ="homebtn" src="assets/black_cloak.gif" width="150px"> </div>
         
-          <div> <b>USERNAME</b>
+          <div class ="left textbox boxlimit"> <b>Your stats</b>
             <ul>
-              <li> list </li>
-              <li> of </li>
-              <li> your </li>
-              <li> stats </li>
+              <li> Level:  </li>
+              <li> Guild:  </li>
+              <li> EXP: </li>
+              <li> Friends: </li>
+              <li> Quests: </li>
+              <li> Location: </li>
             </ul>  
-            formatting here could be tough :( <br>
+            <br>
             game stats <br>
             other user stats <br>
             blah blah blah blah blah<br>
-            blah blah blah blah blahblah blah blah<br> 
-
-            blah blah blahblah blahblah blah blah blah
-            blah blah blah blahblahblah
-            blahblahblah
-            look at my mad placeholder text skills
+            blah blah blah blah blahblah blah blah<br>
+            <br>
+            ye qurl check out my quests<br>
+            i'm so fly<br>
           </div>
 
            
         </div>
       </div>
 
-    <div class="bot-buffer">
+    <div class="bottombuffer">
     </div>  
     <div id = "footer">
       <a href="index.html"><div class="tab home_on"></div></a> <a href="quests.html"><div class="tab quest"></div></a>
       <a href="map.html"><div class="tab map"></div></a> <a href="friends.html"><div class="tab friends"></div></a>
     </div>
   </div>
-  <script src="indexfn.js"></script>
+  <script src="static/indexfn.js"></script>
   </body>
 
 </html>

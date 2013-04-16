@@ -18,22 +18,37 @@
 
   </head>
 
-  <body>
+  <body class ="loginbg">
 
-    <div id = "loading">
-    </div>
-    <div class = "container center_screen">
-      <div class = "login">
+      <div class = "login center_screen textbox">
+
         <form>
-          <p>Username:</p> <input type="text" name="username" size="15" /><br />
-          <p>Password:</p> <input type="password" name="passwort" size="15" /><br />
-          <div align="center">
-          <input type="submit" value="Login" />
+          <p>Username:</p> <input type="text" name="username" size="15"/> <br>
+          <p>Password:</p> <input type="password" name="password" size="15"/> <br>
+          <br>
+          <div class="center">
+          <input type="submit" value="Login"/> <input type="button" value="New User"/> <!-- after login, hide login container-->
           </div>
         </form>
       </div>
+
+
+      <div class = "newuser center_screen hidden">
+
+        <form>
+          <p>Username:</p> <input type="text" name="username" size="15" /><br />
+          <p>Password:</p> <input type="password" name="password" size="15" /><br />
+          <p>Re-enter Password:</p> <input type="password" name="password2" size="15" /><br />
+          <p>Email:</p> <input type="text" name="email" size="15" /><br />
+          <div align="center">
+          <input type="submit" value="Submit" /><!-- after login, hide login container-->
+          </div>
+        </form>
+      </div>
+
     </div>
 
+    
   </body>
 
 </html>
