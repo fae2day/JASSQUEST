@@ -98,7 +98,7 @@ app.post("/userList", function(request, response) {
 	var username = request.body.username;
 	
 	db.users.save({"username" : username, "name" : request.body.name}, 
-		function(err, result){
+		function(err){
 			if (err)
 				response.send({success : false});
 			else{
@@ -273,8 +273,12 @@ function serverInit(){
 	
 	// Insert the sample user.
 	db.users.save({"username" : "SAMPLE", "name" : "Sample Guy", "level" : 1, 
-		"guild" : "Computer Science", "exp" : 0, });
+		"guild" : "Computer Science", "exp" : 0, "doge" : {"dex" : 0, "int" : 0, "str" : 0, "health" : 0},
+		"quests" : [false], "friends" : []}, function(err){});
 	// Insert the sample quest.
+	db.quests.save({"id" : 0, "name" : "My First Quest", "desc" : "Go to Gates.", 
+		"quest_type" : 1, "conditions" : [{"lat" : 40.443942, "lon" : -79.944581}, 
+		{"lat" : 40.443571, "lon" : -79.944425}, {"lat" : 40.443318, "lon" : -79.944806}]});
 };
 
 serverInit();
