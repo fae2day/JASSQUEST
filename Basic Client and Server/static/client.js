@@ -1,5 +1,7 @@
 // Functions for communicating with server
 
+// ~~~~USER FUNCTIONS~~~~
+
 // Posts new user. (Creating an account)
 function post(username, name){
 		var obj = {
@@ -62,22 +64,6 @@ function edit(username, data){
     });
 }
 
-// Gets quest list.
-function getQuests(username){
-	$.ajax({
-      type: "get",
-      url: "/quests/" + username,
-      success: function(data) { 
-				if(data.success){
-					//update dom
-				}
-				else{
-					//error
-				}
-			}
-    });
-};
-
 // Deletes a user.
 function remove(username){
 	console.log("Deleting " + username);
@@ -90,3 +76,71 @@ function remove(username){
 			}
     });
 }
+
+// ~~~~QUEST FUNCTIONS~~~~
+// Gets quest list.
+
+
+function getQuests(){
+	$.ajax({
+		type: "get",
+		url: "/quests",
+		success: function(data) { 
+			if(data.success){
+				console.log(data);
+			}
+			else{
+				alert("Error! Failed to get quests.");
+			}
+		}
+  });
+};
+
+function getCompletedQuests(username){
+	$.ajax({
+		type: "get",
+		url: "/quests/" + username + "/complete",
+		success: function(data) { 
+			if(data.success){
+				//update dom
+			}
+			else{
+				alert("Error! Failed to get quests.");
+			}
+		}
+   });
+};
+
+function getIncompleteQuests(username){
+	$.ajax({
+      type: "get",
+      url: "/quests/" + username + "/incomplete",
+      success: function(data) { 
+				if(data.success){
+					//update dom
+				}
+				else{
+					alert("Error! Failed to get quests.");
+				}
+			}
+    });
+};
+
+// FOR US ONLY. This should be moved somewhere else later.
+// Conditions is an object of whatever you want just because.
+// wow i did this weird, standardize later
+function postQuest(name, description, type, conditions){
+	var obj = {
+		type: "post",
+		data: {"name" : name, "desc" : description, "quest_type" : type, 
+			"success_conditions" : conditions},
+		url: "/quests",
+		success: function(data) {
+			console.log("Post success: ");
+			console.log(data);
+			// Alert us that quest has been posted.
+		}
+	}
+	console.log(obj);
+	$.ajax(obj);
+};

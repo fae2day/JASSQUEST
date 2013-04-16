@@ -158,19 +158,8 @@ app.delete("/userList/:username", function(request, response){
 
 /*
  * Gets all quests.
- * NOT YET IMPLEMENTED
  */
-
-/*
- * Gets all quests completed by a user.
- * NOT YET IMPLEMENTED
- */
-
-/*
- * Gets all quests not yet completed by a user.
- * NOT YET IMPLEMENTED
- */
-app.get("/quests/:username", function(request, response){
+ app.get("/quests", function(request, response){
 	var username = request.params.username;
 	
 	//Filter by the ones user hasn't completed yet.
@@ -183,6 +172,92 @@ app.get("/quests/:username", function(request, response){
 		}
 	});
 });
+
+/*
+ * Gets all quests completed by a user.
+ */
+app.get("/quests/:username/complete", function(request, response){
+	var username = request.params.username;
+	
+	//Filter by the ones user hasn't completed yet.
+	db.users.find({"username" : username}, function(err, user){
+		db.quests.find({}, function(err, quests){
+			if (err){
+				response.send({"success" : false});
+			}
+			else{
+				var completedQuests = [];
+				quests.forEach(function(aQuest){
+					// Check in the user's questlog if the quest has been completed.
+					if(user.questLog[aQuest.id]){
+						completedQuests.push(aQuest);
+					}
+				});
+				response.send({"quests" : completedQuests, "success" : true});
+			}
+		});
+	});
+});
+
+/*
+ * Gets all quests not yet completed by a user.
+ */
+app.get("/quests/:username/incomplete", function(request, response){
+	var username = request.params.username;
+	
+	//Filter by the ones user hasn't completed yet.
+	db.users.find({"username" : username}, function(err, user){
+		db.quests.find({}, function(err, quests){
+			if (err){
+				response.send({"success" : false});
+			}
+			else{
+				var completedQuests = [];
+				quests.forEach(function(aQuest){
+					// Check in the user's questlog if the quest has been completed.
+					if(user.questLog[aQuest.id] !== undefined && 
+					user.questLog[aQuest.id] === 0){
+						completedQuests.push(aQuest);
+					}
+				});
+				response.send({"quests" : completedQuests, "success" : true});
+			}
+		});
+	});
+});
+
+/* 
+ *	Creates a new quest.
+*/
+app.post("/quests", function(request, response) {
+	console.log("Server posting quest..");
+	
+	var name = request.body.name;
+	var desc = request.body.desc;
+	var type = request.body.quest_type;
+	var conditions = request.body.success_conditions;
+	
+	db.quests.find({}, function(err, questList){
+		var id = questList.length;
+	
+		db.quests.save({"id" : id, "name" : name, "desc" : desc,
+			"type" : type, "success_conditions" : conditions}, 
+			function(err, result){
+				if (err)
+					response.send({success : false});
+				else{
+					// Respond to client with the updated user.
+					db.quests.find({"id" : id},
+						function(err, quest){
+							// respond with success and updated 
+							if (err) response.send({"success" : false});
+							else response.send({"quest" : quest, "success" : true});
+						}).limit(1);
+				};
+			});
+		});
+});
+
 
 // Serve files in the static directory.
 app.get("/static/:staticFilename", function (request, response) {
