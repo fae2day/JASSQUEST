@@ -1,5 +1,7 @@
 // Functions for communicating with server
 
+var JASSquest_user;
+
 // ~~~~USER FUNCTIONS~~~~
 
 // Posts new user. (Creating an account)
@@ -31,7 +33,21 @@ function get(){
     });
 }
 
-// Gets specified user.
+// Gets the user.
+function getMyUser(username){
+	 $.ajax({
+      type: "get",
+      url: "/userList/" + username,
+      success: function(data) {
+				console.log("Get success: ");
+				console.log(data);
+				JASSquest_user = data;
+				//Data for profile and quests and friends and stuff.
+      }
+    });
+};
+
+// Gets some other specified user.
 function getUser(username){
 	 $.ajax({
       type: "get",
@@ -42,7 +58,7 @@ function getUser(username){
 				//Data for profile and quests and friends and stuff.
       }
     });
-}
+};
 
 
 // Updates user info.
@@ -143,4 +159,22 @@ function postQuest(name, description, type, conditions){
 	}
 	console.log(obj);
 	$.ajax(obj);
+};
+
+function checkLocationQuest(questList, currentLoc){
+	for(var i = 0; i < questList.length; i++){
+		var questlat = questList[i].lat.toFixed(5);
+		var questlong = questList[i].lon.toFixed(5);
+		
+		if(currentLoc.lat.toFixed(5) === questlat && 
+			currentLoc.lon.toFixed(5) === questlong){
+			return true;
+		}
+	}
+	return false;
+};
+
+function init(){
+	//Sample user, for demos.
+	getMyUser("SAMPLE");
 };

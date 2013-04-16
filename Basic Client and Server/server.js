@@ -264,6 +264,20 @@ app.get("/static/:staticFilename", function (request, response) {
     response.sendfile("static/" + request.params.staticFilename);
 });
 
+// Don't close the mongo server please.
+function serverInit(){
+	// Remove all users.
+	db.users.remove({}, function(err){});
+	// Remove all quests.
+	db.quests.remove({}, function(err){});
+	
+	// Insert the sample user.
+	db.users.save({"username" : "SAMPLE", "name" : "Sample Guy", "level" : 1, 
+		"guild" : "Computer Science", "exp" : 0, });
+	// Insert the sample quest.
+};
+
+serverInit();
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
